@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  jenkins:
+    container_name: jenkins_server
+    build:
+      context: .
+      args:
+        JENKINS_VERSION: lts
+    image: jenkins_image:lts
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    healthcheck:
+      test: buildin_health_check.sh
+      interval: 5m
+      timeout: 20s
+      retries: 3
+
+
+
+volumes:
+  jenkins_home: {}
