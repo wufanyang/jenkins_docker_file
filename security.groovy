@@ -7,7 +7,7 @@ import javaposse.jobdsl.plugin.GlobalJobDslSecurityConfiguration
 
 def instance = Jenkins.getInstance()
 
-def adrealm = new ActiveDirectorySecurityRealm('ni.corp.natinst.com', '', '', '', '', GroupLookupStrategy.RECURSIVE)
+def adrealm = new ActiveDirectorySecurityRealm('hujiang.com', '', '', '', '', GroupLookupStrategy.RECURSIVE)
 instance.setSecurityRealm(adrealm)
 
 def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
